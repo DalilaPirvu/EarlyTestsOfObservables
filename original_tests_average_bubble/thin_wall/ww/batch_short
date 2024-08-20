@@ -1,0 +1,12 @@
+#!/bin/bash
+## Script for PI cluster symmetry:
+#SBATCH --partition=debugq
+#SBATCH --cpus-per-task=20
+#SBATCH --exclusive
+#SBATCH --time=1:00:00
+#SBATCH --mem=180g
+#SBATCH -J sims
+
+make clean
+make
+./scalar-1d

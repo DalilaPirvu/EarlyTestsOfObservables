@@ -1,0 +1,116 @@
+rm -f *.o
+rm -f *.mod
+rm -f scalar-1d
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c constants.f90 -o constants.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c fftw_mod_wtype.f90 -o fftw_mod_wtype.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c random_field.f90 -o random_field.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c eom-scalar.f90 -o eom-scalar.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c integrator.f90 -o integrator.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c evolve-scalar.f90 -o evolve-scalar.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+evolve-scalar.f90:56:34:
+
+   subroutine time_evolve(sim, step, temp, lambda, m2, gam)
+                                  1
+Warning: Unused dummy argument ‘step’ at (1) [-Wunused-dummy-argument]
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -o scalar-1d evolve-scalar.o constants.o fftw_mod_wtype.o random_field.o eom-scalar.o integrator.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+ Simulation            1  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation            2  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation            3  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation            4  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation            5  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation            6  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation            7  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation            8  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation            9  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           10  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           11  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           12  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           13  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           14  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           15  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           16  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           17  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           18  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           19  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           20  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           21  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           22  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           23  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           24  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           25  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           26  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           27  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           28  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           29  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           30  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           31  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           32  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           33  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           34  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           35  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           36  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           37  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           38  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           39  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           40  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           41  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           42  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           43  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           44  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           45  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           46  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           47  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           48  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           49  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           50  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           51  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           52  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           53  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           54  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           55  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           56  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           57  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           58  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           59  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           60  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           61  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           62  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           63  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           64  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           65  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           66  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           67  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           68  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           69  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           70  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           71  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           72  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           73  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           74  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           75  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           76  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           77  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           78  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           79  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           80  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           81  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           82  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           83  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           84  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           85  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           86  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           87  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           88  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           89  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           90  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           91  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           92  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           93  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           94  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           95  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           96  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           97  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           98  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation           99  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ Simulation          100  in          100 with   1.0000000000000000        1.0000000000000000       done!
+ m2bare =    1.0000000000000000      m2eff =   0.40870000000000001      len =    100.00000000000000      dt =    1.2207031250000000E-002 dx =    9.7656250000000000E-002 dk =    6.2831853071795868E-002 phi0 =    1.0000000000000000      alph =            8 spec =          513

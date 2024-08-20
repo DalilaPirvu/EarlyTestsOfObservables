@@ -1,0 +1,19 @@
+rm -f *.o
+rm -f *.mod
+rm -f scalar-1d
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c constants.f90 -o constants.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c fftw_mod_wtype.f90 -o fftw_mod_wtype.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c random_field.f90 -o random_field.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c eom-scalar.f90 -o eom-scalar.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c integrator.f90 -o integrator.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -c evolve-scalar.f90 -o evolve-scalar.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+gfortran -fdefault-real-8 -fdefault-double-8 -cpp -ffree-line-length-none  -fopenmp -Wall -fbounds-check -pedantic -g -pg -funroll-loops -O3  -I/home/dpirvu/fftw/include/  -DUSEOMP=1 -DUSEBLAS=1 -DBENCHMARK=1 -DBENCHMARK_FINE_GRAIN=1 -o scalar-1d evolve-scalar.o constants.o fftw_mod_wtype.o random_field.o eom-scalar.o integrator.o -L/home/dpirvu/fftw/lib/ -lfftw3_omp -lfftw3  -lblas -lm 
+        1095
+ Simulation            0  in            5  done!
+ Simulation            1  in            5  done!
+         648
+ Simulation            2  in            5  done!
+       20444
+ Simulation            3  in            5  done!
+       19657
+ Simulation            4  in            5  done!
